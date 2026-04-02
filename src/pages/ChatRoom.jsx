@@ -19,7 +19,10 @@ const ChatRoom = ({ match, onLeave }) => {
 
     wsService.connect(match.id);
 
-    const onOpen = () => setStatus('connected');
+    const onOpen = () => {
+      setStatus('connected');
+      setError(null);
+    };
     const onClose = () => {
       setStatus('disconnected');
       setError('Chat ended or connection lost.');
